@@ -46,6 +46,30 @@
       // Prevent default for form submit
       // So the page will not refresh to action value
       e.preventDefault();
+    }); // Closes Submit button listener
+
+    var formElement = document.querySelector("[data-js='form--fullName']");
+    var formDataArray = [
+      {
+        type: "text",
+        value: "",
+        placeholder: "first name"
+      },
+      {
+        type: "text",
+        value: "",
+        placeholder: ""
+      },
+      {
+        type: "submit",
+        value: "save your name"
+      }
+    ]
+
+    formDataArray.forEach(function(input){
+      formElement.innerHTML += `
+        <input type="${input.type}" value="${input.value}" placeholder="${input.placeholder}">
+      `;
     });
   }); // Closes DOMContentLoaded listener
 }()); // Closes IIFE
